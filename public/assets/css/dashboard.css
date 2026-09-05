@@ -1,0 +1,140 @@
+/* Dashboard-specific styles — loaded on dashboard screens
+   Enhances the base styles for metric cards, charts and dashboard layouts. */
+
+.dashboard-shell {
+  display: grid;
+  gap: 20px;
+}
+
+.dashboard-metrics {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 24px;
+}
+
+.dashboard-metric {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dashboard-metric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(38, 71, 48, 0.1);
+}
+
+.dashboard-metric strong {
+  display: block;
+  font-size: 32px;
+  margin-top: 8px;
+  color: var(--brand-dark);
+}
+
+.dashboard-metric .label {
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-section {
+  margin-top: 28px;
+}
+
+.dashboard-section h2 {
+  font-size: 19px;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.dashboard-cards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.dashboard-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  transition: box-shadow 0.15s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 12px rgba(38, 71, 48, 0.08);
+}
+
+.dashboard-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.dashboard-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+/* Quick actions row */
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* Status indicators */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-dot.active {
+  background: #177245;
+}
+
+.status-dot.pending {
+  background: #d4a017;
+}
+
+.status-dot.inactive {
+  background: #b32638;
+}
+
+/* Dashboard table tweaks */
+.dashboard-table {
+  font-size: 14px;
+}
+
+.dashboard-table th {
+  background: var(--soft);
+}
+
+/* Responsive dashboard */
+@media (max-width: 760px) {
+  .dashboard-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dashboard-metric strong {
+    font-size: 24px;
+  }
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-metrics {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /codes/automated-tax-management-system/
+
+    # Serve public assets directly from the public folder even when the app is mounted
+    # at a project subdirectory instead of the public directory itself.
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L,QSA]
+    RewriteRule ^js/(.*)$ public/assets/js/$1 [L,QSA]
+    RewriteRule ^css/(.*)$ public/assets/css/$1 [L,QSA]
+    RewriteRule ^images/(.*)$ public/assets/images/$1 [L,QSA]
+    RewriteRule ^fonts/(.*)$ public/assets/fonts/$1 [L,QSA]
+
+    # If the request is already for the public folder, serve normally
+    RewriteRule ^public/ - [L]
+
+    # Serve existing files/directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route everything else to public/index.php (front controller)
+    RewriteRule ^(.*)$ public/index.php [L,QSA]
+</IfModule>
+
+# Fallback for servers without mod_rewrite: redirect to public/
+<IfModule !mod_rewrite.c>
+    RedirectMatch 302 ^/$ /codes/automated-tax-management-system/public/
+</IfModule>

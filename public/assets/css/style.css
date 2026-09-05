@@ -1,0 +1,189 @@
+/* Base theme — moved from inline <style> in app/views/layouts/main.php
+   README §17 reports + all app screens share this stylesheet. */
+
+:root{
+  --ink:#132018;
+  --muted:#617064;
+  --line:#dfe7df;
+  --paper:#fbfdf8;
+  --brand:#177245;
+  --brand-dark:#0f5132;
+  --soft:#eef6ed
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#f7fbf3 0%,#eef7ef 50%,#fdf8eb 100%);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  min-height:100vh
+}
+a{color:var(--brand-dark);text-decoration:none}
+.shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{background:#10251b;color:#fff;padding:24px 18px}
+.brand{font-size:22px;font-weight:700;line-height:1.15;margin-bottom:26px}
+.brand span{display:block;color:#b8d8bd;font-size:13px;font-weight:400;margin-top:6px}
+.nav{display:grid;gap:8px}
+.nav a,
+.logout button{
+  border:0;
+  border-radius:6px;
+  color:#edf7ef;
+  background:transparent;
+  display:block;
+  font:inherit;
+  padding:10px 12px;
+  text-align:left;
+  width:100%
+}
+.nav a:hover,
+.nav a.active,
+.logout button:hover{background:#1b3b2c}
+.logout{margin-top:20px}
+.main{padding:28px}
+.topbar{align-items:center;display:flex;gap:16px;justify-content:space-between;margin-bottom:26px}
+.panel{
+  background:rgba(255,255,255,.86);
+  border:1px solid var(--line);
+  border-radius:8px;
+  box-shadow:0 18px 45px rgba(38,71,48,.08);
+  padding:24px
+}
+.panel h1{font-size:30px;margin:0 0 8px}
+.muted{color:var(--muted)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}
+.metric{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:18px
+}
+.metric strong{display:block;font-size:28px;margin-top:8px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.button{
+  background:var(--brand);
+  border:0;
+  border-radius:6px;
+  color:#fff;
+  display:inline-block;
+  font:inherit;
+  padding:10px 14px
+}
+.button.secondary{
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--brand-dark)
+}
+table{border-collapse:collapse;width:100%}
+th,
+td{border-bottom:1px solid var(--line);padding:10px;text-align:left}
+th{color:var(--muted);font-size:13px;text-transform:uppercase}
+label{display:block;font-weight:700;margin:14px 0 6px}
+input,
+select,
+textarea{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:6px;
+  color:var(--ink);
+  display:block;
+  font:inherit;
+  padding:10px;
+  width:100%
+}
+.check-row{align-items:center;display:flex;gap:8px;margin-top:14px}
+.check-row input{width:auto}
+h2{font-size:19px;margin:28px 0 10px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--brand-dark);
+  padding:5px 12px
+}
+.chip.active,
+.chip:hover{background:var(--soft)}
+.badge{
+  background:#edf2ee;
+  border-radius:999px;
+  color:#33413a;
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.4px;
+  padding:3px 10px;
+  text-transform:uppercase
+}
+.badge.b-ok{background:#dff3e6;color:#11603a}
+.badge.b-warn{background:#fcf1cf;color:#6d5200}
+.badge.b-bad{background:#fbe4e4;color:#8a1f2b}
+.badge.b-info{background:#e5eefb;color:#1d4fa1}
+.flash{border-radius:6px;margin-bottom:18px;padding:12px 14px}
+.flash-success{background:#e2f6e9;border-left:4px solid #177245}
+.flash-error{background:#fce8e8;border-left:4px solid #b32638}
+.flash-warning{background:#fdf5d8;border-left:4px solid #a68100}
+.flash-info{background:#e7eefb;border-left:4px solid #31589e}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:18px
+}
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+dl.kv{display:grid;gap:10px;grid-template-columns:220px 1fr;margin:0}
+dl.kv dt{color:var(--muted);font-size:13px;text-transform:uppercase}
+dl.kv dd{margin:0}
+form.row{display:flex;flex-wrap:wrap;gap:14px}
+form.row .field{flex:1 1 200px}
+form.row .field.full{width:100%}
+form.row label{margin:0}
+form.row input,
+form.row select,
+form.row textarea{width:100%}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+thead th{text-align:left}
+tbody tr:hover{background:var(--soft)}
+textarea{resize:vertical}
+
+/* ── Page head (used in taxpayers/index.php, taxpayers/create.php) ── */
+.page-head{align-items:center;display:flex;gap:16px;justify-content:space-between;margin-bottom:20px}
+.page-head h1{margin:0 0 6px}
+
+/* ── Form filters layout ── */
+.form-filters{align-items:end;display:grid;gap:12px;grid-template-columns:1fr 220px auto;margin-bottom:18px}
+.form-filters label{display:grid;gap:6px}
+.form-filters span{color:var(--muted);font-size:13px}
+
+/* ── Table wrapper for horizontal scroll ── */
+.table-wrap{overflow-x:auto}
+
+/* ── Empty state ── */
+.empty-state{border:1px dashed var(--line);border-radius:8px;padding:26px;text-align:center}
+.empty-state h2{margin:0 0 8px}
+
+/* ── Pagination ── */
+.pagination{align-items:center;display:flex;gap:16px;justify-content:space-between;margin-top:18px}
+
+/* ── Taxpayer form layout ── */
+.taxpayer-form{display:grid;gap:18px}
+.form-section{border:1px solid var(--line);border-radius:8px;padding:18px}
+.form-section h2{font-size:18px;margin:0 0 14px}
+.field-grid{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.field-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wide{grid-column:1 / -1}
+.field-grid label{display:grid;gap:6px;margin:0}
+.field-grid label span{color:var(--muted);font-size:13px;font-weight:400}
+.form-actions{display:flex;gap:10px}
+
+/* ── Reports §17 specific ───────────────────────────── */
+.report-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  margin-top:18px
+}
+.report-grid .metric{text-align:center}
+.report-table{max-width:840px;margin-top:12px;overflow-x:auto}
+.report-table th{position:sticky;top:0;background:rgba(255,255,255,.9)}
+.print-controls{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}

@@ -1,0 +1,77 @@
+/* Report-specific styles (README §17) — loaded only on /reports/* pages */
+.report-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  margin-top:18px
+}
+.report-grid .metric{text-align:center}
+.report-table{
+  max-width:960px;
+  margin-top:14px;
+  overflow-x:auto
+}
+.report-table th{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,.95);
+  font-weight:600;
+  font-size:12px;
+  text-transform:uppercase;
+  color:var(--muted)
+}
+.report-table tbody tr:hover{background:var(--soft)}
+.print-controls{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap
+}
+.print-controls .button{cursor:pointer}
+
+/* CSV export button styling */
+.export-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#2563eb;
+  border:0;
+  border-radius:6px;
+  color:#fff;
+  font:inherit;
+  padding:8px 14px
+}
+.export-btn:hover{background:#1d4ed8}
+
+/* Filter form enhancements */
+.report-filters{
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px;
+  margin-bottom:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:flex-end
+}
+.report-filters label{
+  font-weight:600;
+  font-size:12px;
+  text-transform:uppercase;
+  color:var(--muted)
+}
+.report-filters .field{flex:1 1 160px}
+.report-filters .actions{flex:0 0 auto}
+
+@media print{
+  body{background:#fff}
+  .sidebar,
+  .topbar,
+  .print-controls,
+  .actions,
+  .report-filters{display:none}
+  .main{padding:0}
+  .panel{box-shadow:none;border:0;background:#fff}
+  .report-table{margin-top:0}
+}
