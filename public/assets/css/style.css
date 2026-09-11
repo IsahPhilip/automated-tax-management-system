@@ -24,22 +24,43 @@ a{color:var(--brand-dark);text-decoration:none}
 .sidebar{background:#10251b;color:#fff;padding:24px 18px}
 .brand{font-size:22px;font-weight:700;line-height:1.15;margin-bottom:26px}
 .brand span{display:block;color:#b8d8bd;font-size:13px;font-weight:400;margin-top:6px}
-.nav{display:grid;gap:8px}
+.nav{display:grid;gap:4px}
 .nav a,
 .logout button{
   border:0;
   border-radius:6px;
   color:#edf7ef;
   background:transparent;
-  display:block;
+  display:flex;
+  align-items:center;
+  gap:10px;
   font:inherit;
-  padding:10px 12px;
+  padding:9px 12px;
   text-align:left;
   width:100%
 }
+.nav a svg,
+.logout button svg{
+  width:14px;
+  height:14px;
+  flex-shrink:0;
+  opacity:.8
+}
+.nav a:hover svg,
+.nav a.active svg{opacity:1}
 .nav a:hover,
 .nav a.active,
 .logout button:hover{background:#1b3b2c}
+.nav-section{
+  color:#6a9e7a;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.8px;
+  margin-top:14px;
+  margin-bottom:2px;
+  padding:0 12px;
+  text-transform:uppercase
+}
 .logout{margin-top:20px}
 .main{padding:28px}
 .topbar{align-items:center;display:flex;gap:16px;justify-content:space-between;margin-bottom:26px}
