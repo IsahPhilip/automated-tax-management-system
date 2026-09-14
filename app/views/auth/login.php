@@ -42,6 +42,7 @@
             font: inherit;
             padding: 10px 14px;
             width: 100%;
+            margin-top: 20px;
         }
         .login button[type="submit"]:hover {
             background: var(--brand-dark);
